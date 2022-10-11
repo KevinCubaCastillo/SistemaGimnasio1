@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using SistemaGimnasio.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<dn9jbgf4b4ih0Context>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DbGym"));
+});
 
 var app = builder.Build();
 
