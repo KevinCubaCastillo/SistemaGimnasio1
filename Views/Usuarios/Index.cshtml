@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SistemaGimansio2.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombreusuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contrasenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombreusuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contrasenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoNavigation.Idestado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Ci">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Ci">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Ci">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
